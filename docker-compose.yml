@@ -1,0 +1,9 @@
+services:
+  api:
+    build: .
+    ports: ["5000:5000"]
+  streamlit:
+    build: .
+    command: streamlit run streamlit/app.py --server.address=0.0.0.0
+    ports: ["8501:8501"]
+    depends_on: [api]
